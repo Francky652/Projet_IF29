@@ -49,7 +49,7 @@ L'enjeu n'est pas uniquement de produire un classifieur, mais surtout de **compa
 
 | Membre | Rôles assumés | Contributions principales |
 |---|---|---|
-| *Nom 1* | Data Engineer, Data Cleaner | Import MongoDB, pipelines d'agrégation, nettoyage |
+| *TIMADJI Jules* | Data Engineer, Data Cleaner | Import MongoDB, pipelines d'agrégation, nettoyage |
 | *Nom 2* | Data Analyst, Dataviz Expert | Exploration, feature engineering, visualisations |
 | *Nom 3* | ML Engineer | Modèles supervisés, pipelines scikit-learn |
 | *Nom 4* | ML Project Manager, Rédacteur | Modèles non supervisés, comparaison, rapport |

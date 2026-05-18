@@ -25,6 +25,7 @@ Ce repository contient l'ensemble des ressources qui ont été utiles à la réa
 2. [Objectifs](#objectifs)
 3. [Équipe et rôles](#équipe-et-rôles)
 4. [Données](#données)
+5. [Structure du projet](#structure-du-projet)
 
 ---
 
@@ -54,7 +55,7 @@ L'enjeu n'est pas uniquement de produire un classifieur, mais surtout de **compa
 |---|---|---|
 | *TIMADJI Jules* | Data Engineer | Import MongoDB, pipelines d'agrégation, nettoyage |
 | *Fotio Francky* | Data Cleaner | Exploration, feature engineering, visualisations |
-| *Nom 3* | Data Analyst, Dataviz Expert | Modèles supervisés, pipelines scikit-learn |
+| *HU Xinyu* | Data Analyst, Dataviz Expert | Modèles supervisés, pipelines scikit-learn |
 | *Nom 4* | ML Engineer | Modèles non supervisés, comparaison, rapport |
 | *Nom 5* | ML Project Manager, Rédacteur | Modèles non supervisés, comparaison, rapport |
 
@@ -66,3 +67,33 @@ L'enjeu n'est pas uniquement de produire un classifieur, mais surtout de **compa
 
 Jeu de données fourni dans le cadre de l'UE : `Tweet_Worldcup.zip` (≈ 27 Go décompressé), constitué de tweets collectés via l'API publique de Twitter pendant la Coupe du Monde, au format JSON.
 
+## Structure du projet
+
+Le dépôt est organisé en plusieurs modules correspondant aux différentes étapes du pipeline de traitement et d’analyse des données.
+
+```text
+IF29-Twitter-Classification/
+│
+├── Traitement_des_donnees/
+│   ├── 1_create.ipynb
+│   ├── 2_feature_extaction.ipynb
+│   ├── 3_features_calc.ipynb
+│   └── output.json
+│
+├── dataset/
+│   ├── user_twitter_data.csv
+│   ├── data_with_labels_train_std.csv
+│   └── data_with_labels_predict_std.csv
+│
+├── SVM/
+│   ├── EtiquettesMaker.ipynb
+│   └── ML_SVM.ipynb
+│
+├── K-Means/
+│   ├── Kmeans_sans_pca.ipynb
+│   └── Kmeans_avec_pca.ipynb
+│
+├── pca_explorer.ipynb
+├── README.md
+├── .gitignore
+└── .gitattributes

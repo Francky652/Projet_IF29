@@ -69,7 +69,7 @@ Jeu de données fourni dans le cadre de l'UE : `Tweet_Worldcup.zip` (≈ 27 Go d
 
 ## Structure du projet
 
-Le dépôt est organisé en plusieurs modules correspondant aux différentes étapes du pipeline de traitement et d’analyse des données.
+Le dépôt est organisé en plusieurs modules correspondant aux différentes étapes du pipeline de traitement et d’analyse des données.Si le nom du fichier n’est pas approprié, merci de le modifier.
 
 ```text
 IF29-Twitter-Classification/

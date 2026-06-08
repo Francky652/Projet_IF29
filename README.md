@@ -78,6 +78,7 @@ IF29-Twitter-Classification/
 │   ├── 1_create.ipynb
 │   ├── 2_feature_extaction.ipynb
 │   ├── 3_features_calc.ipynb
+│   ├── pca_explorer.ipynb
 │   └── output.json
 │
 ├── dataset/
@@ -90,10 +91,9 @@ IF29-Twitter-Classification/
 │   └── ML_SVM.ipynb
 │
 ├── K-Means/
-│   ├── Kmeans_sans_pca.ipynb
+│   ├── 4_non_supervise_Kmeans.ipynb
 │   └── Kmeans_avec_pca.ipynb
 │
-├── pca_explorer.ipynb
 ├── README.md
 ├── .gitignore
 └── .gitattributes

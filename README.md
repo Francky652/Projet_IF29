@@ -92,7 +92,6 @@ IF29-Twitter-Classification/
 │
 ├── K-Means/
 │   ├── 4_non_supervise_Kmeans.ipynb
-│   └── Kmeans_avec_pca.ipynb
 │
 ├── README.md
 ├── .gitignore

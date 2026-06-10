@@ -9,13 +9,13 @@ Comparaison de deux approches de Machine Learning — **supervisée** et **non s
 ---
 ### Introduction du projet
 
-Ce projet présente le travail effectué par le groupe 2 pour le projet de l’UE IF29 - Traitement de données (Data Analytics). L’objectif de ce projet est d’implémenter sur un même dataset et pour une même problématique une approche non supervisée et une approche supervisée et d’en faire le comparatif de Machine learning.
+Ce projet présente le travail réalisé par le groupe 2 dans le cadre de l’UE IF29 — Traitement de données (Data Analytics). Il porte sur la détection de profils atypiques sur X, anciennement Twitter, à partir du jeu de données Tweet_Worldcup.
 
-L'objectif est de mettre en œuvre une méthode non supervisée et une méthode supervisée pour le même problème sur le même ensemble de données et de les comparer.
+L’objectif principal est de mettre en œuvre et de comparer deux approches de Machine Learning appliquées à une même problématique et à un même jeu de données : une approche non supervisée et une approche supervisée. L’approche non supervisée, basée sur le clustering, permet d’explorer les comportements des utilisateurs sans utiliser de labels prédéfinis. L’approche supervisée, basée sur un modèle de classification, vise à identifier automatiquement des profils considérés comme atypiques selon des critères définis à partir des données.
 
-Nous mettrons en œuvre deux algorithmes d'apprentissage automatique pour détecter les profils Twitter "suspects". Une étude comparative sera ensuite menée sur les résultats fournis par chacun des deux algorithmes sur les dimensions pertinentes. Ensuite, nous effectuons une optimisation améliorée.
+Dans ce projet, un profil atypique désigne un utilisateur dont les caractéristiques statistiques ou comportementales s’écartent fortement de celles de la majorité des comptes observés. Il peut par exemple s’agir d’un compte ayant une activité anormalement élevée, une faible visibilité malgré de nombreuses publications, ou une utilisation importante de hashtags et de liens externes. Les profils détectés doivent cependant être considérés comme potentiellement atypiques, et non comme des bots ou des spammeurs certifiés.
 
-Ce repository contient l'ensemble des ressources qui ont été utiles à la réalisation du projet d'IF29 nécessitant l'implémentation de deux méthodes de machine learning (supervisé et non supervisé) afin de trouver des profils twitter dit suspect.
+Ce dépôt contient les notebooks, les scripts, les données intermédiaires et les ressources nécessaires à la préparation des données, à l’entraînement des modèles, à l’analyse des résultats et à la comparaison des deux approches.
 
 ---
 
@@ -31,23 +31,27 @@ Ce repository contient l'ensemble des ressources qui ont été utiles à la réa
 
 ## Contexte
 
-La détection de profils malveillants (bots, spammeurs, comptes diffuseurs de fake news) constitue un enjeu majeur de modération des réseaux sociaux. Ce projet s'inscrit dans la lignée des travaux fondateurs du domaine, notamment l'outil **SPOT** (Perez et al., 2011) développé à l'UTT, qui propose un scoring tridimensionnel des profils suspects selon trois axes : *agressivité*, *visibilité* et *dangerosité*.
+L’analyse des profils atypiques sur les réseaux sociaux constitue un enjeu important pour la compréhension des comportements en ligne. Certains comptes peuvent présenter des caractéristiques particulières, par exemple une activité très élevée, une faible visibilité malgré de nombreuses publications, ou une utilisation importante de hashtags, de mentions et de liens externes. Ces comportements peuvent parfois être associés à des bots, des spammeurs ou des comptes diffusant massivement de l’information, mais les données disponibles ne permettent pas de les identifier avec certitude.
 
-Nous proposons d'expérimenter et de comparer deux familles d'approches sur un corpus de tweets collectés autour de l'événement *Coupe du Monde* :
+Ce projet s’inscrit dans la continuité de travaux portant sur la détection de profils suspects sur Twitter, notamment l’outil SPOT développé à l’UTT, qui propose d’analyser les profils selon plusieurs dimensions comme l’activité, la visibilité ou le niveau de risque. Dans notre cas, nous nous inspirons de cette logique en construisant des indicateurs statistiques et comportementaux à partir des variables disponibles dans le jeu de données.
 
-- une **classification supervisée**, fondée sur un étiquetage heuristique des profils ;
-- une **classification non supervisée**, fondée sur un clustering du comportement des utilisateurs.
+Nous proposons d’expérimenter et de comparer deux familles d’approches sur un corpus de tweets collectés autour de l’événement Coupe du Monde :
 
-L'enjeu n'est pas uniquement de produire un classifieur, mais surtout de **comparer la pertinence des deux approches** pour identifier des profils s'écartant statistiquement de la population moyenne.
+une approche non supervisée, fondée sur le clustering du comportement des utilisateurs ;
+une approche supervisée, fondée sur une classification à partir d’un étiquetage heuristique des profils.
+
+L’enjeu n’est pas seulement de produire un modèle de classification, mais surtout de comparer la pertinence des deux approches pour identifier des profils qui s’écartent statistiquement de la population moyenne.
 
 ## Objectifs
 
-- Construire un dataset analytique au **niveau profil** à partir d'un dataset brut au niveau tweet (≈ 27 Go).
-- Concevoir un ensemble de **features** descriptives (sociales, comportementales, contenu) inspirées de la littérature scientifique.
-- Implémenter et évaluer **au moins un modèle supervisé** (Random Forest, SVM, Régression logistique).
-- Implémenter et évaluer **au moins un modèle non supervisé** (K-Means, DBSCAN, clustering hiérarchique).
-- Mener une **analyse comparative critique** des deux approches : performance, interprétabilité, robustesse, coût computationnel.
-- Rédiger un **rapport scientifique** et préparer une **soutenance orale**.
+- Construire un dataset analytique au **niveau profil utilisateur** à partir d’un dataset brut au niveau tweet.
+- Comprendre les variables disponibles dans le jeu de données `Tweet_Worldcup` et sélectionner les indicateurs pertinents.
+- Concevoir des **features descriptives** liées aux caractéristiques sociales, au comportement de publication et au contenu des tweets.
+- Créer des indicateurs métier tels que le ratio followers/friends, le ratio d’activité et le score de visibilité.
+- Implémenter et analyser une approche **non supervisée** basée sur K-Means afin d’identifier des groupes de profils aux comportements similaires.
+- Implémenter et évaluer une approche **supervisée** basée sur Random Forest afin de détecter automatiquement des profils potentiellement atypiques.
+- Comparer les deux approches selon plusieurs dimensions : interprétabilité, performance, robustesse, limites et coût de mise en œuvre.
+- Rédiger un rapport de projet et préparer une soutenance orale.
 
 ## Équipe et rôles
 
@@ -76,22 +80,23 @@ IF29-Twitter-Classification/
 │
 ├── Traitement_des_donnees/
 │   ├── 1_create.ipynb
-│   ├── 2_feature_extaction.ipynb
+│   ├── 2_feature_extraction.ipynb
 │   ├── 3_features_calc.ipynb
-│   ├── pca_explorer.ipynb
-│   └── output.json
+│   └── pca_explorer.ipynb
 │
 ├── dataset/
 │   ├── user_twitter_data.csv
-│   ├── data_with_labels_train_std.csv
-│   └── data_with_labels_predict_std.csv
+│   ├── data_with_fearures.csv
+│   └── data_with_pca.csv
 │
-├── SVM/
-│   ├── EtiquettesMaker.ipynb
-│   └── ML_SVM.ipynb
+├── Random forset/
+│   └── Algorithme supervisé.ipynb
 │
 ├── K-Means/
-│   ├── 4_non_supervise_Kmeans.ipynb
+│   └── 4_non_supervise_Kmeans.ipynb
+|
+├── Experimentation_Analyse_Comparative/
+│   └── Experimentation_Analyse_Comparative.ipynb
 │
 ├── README.md
 ├── .gitignore

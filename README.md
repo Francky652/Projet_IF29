@@ -7,7 +7,7 @@
 Comparaison de deux approches de Machine Learning — **supervisée** et **non supervisée** — pour la détection de profils suspects, automatisés ou atypiques sur la plateforme X (anciennement Twitter), à partir du jeu de données `Tweet_Worldcup`.
 
 ---
-### Introduction du projet
+## Introduction du projet
 
 Ce projet présente le travail réalisé par le groupe 2 dans le cadre de l’UE IF29 — Traitement de données (Data Analytics). Il porte sur la détection de profils atypiques sur X, anciennement Twitter, à partir du jeu de données Tweet_Worldcup.
 
@@ -26,6 +26,9 @@ Ce dépôt contient les notebooks, les scripts, les données intermédiaires et 
 3. [Équipe et rôles](#équipe-et-rôles)
 4. [Données](#données)
 5. [Structure du projet](#structure-du-projet)
+6. [Installation et dépendances](#installation-et-dépendances)
+7. [Utilisation](#utilisation)
+8. [Résultats et limites](#résultats-et-limites)
 
 ---
 
@@ -73,7 +76,7 @@ Jeu de données fourni dans le cadre de l'UE : `Tweet_Worldcup.zip` (≈ 27 Go d
 
 ## Structure du projet
 
-Le dépôt est organisé en plusieurs modules correspondant aux différentes étapes du pipeline de traitement et d’analyse des données.Si le nom du fichier n’est pas approprié, merci de le modifier.
+Le dépôt est organisé en plusieurs modules correspondant aux différentes étapes du pipeline de traitement et d’analyse des données.
 
 ```text
 IF29-Twitter-Classification/
@@ -86,18 +89,68 @@ IF29-Twitter-Classification/
 │
 ├── dataset/
 │   ├── user_twitter_data.csv
-│   ├── data_with_fearures.csv
+│   ├── data_with_features.csv
 │   └── data_with_pca.csv
 │
-├── Random forset/
+├── Random forest/
 │   └── Algorithme supervisé.ipynb
 │
 ├── K-Means/
-│   └── 4_non_supervise_Kmeans.ipynb
-|
+│   └── 4_non_supervise_KMeans.ipynb
+│
 ├── Experimentation_Analyse_Comparative/
 │   └── Experimentation_Analyse_Comparative.ipynb
 │
 ├── README.md
 ├── .gitignore
 └── .gitattributes
+```
+
+
+## Installation et dépendances
+
+Le projet a été réalisé avec Python et Jupyter Notebook.
+
+Les principales bibliothèques utilisées sont :
+
+```text
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+pymongo
+jupyter
+```
+
+Installation possible :
+
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn pymongo jupyter
+```
+
+## Utilisation
+
+Les notebooks doivent être exécutés dans l’ordre suivant :
+
+```text
+1. Traitement_des_donnees/1_create.ipynb
+2. Traitement_des_donnees/2_feature_extraction.ipynb
+3. Traitement_des_donnees/3_features_calc.ipynb
+4. Traitement_des_donnees/pca_explorer.ipynb
+5. K-Means/4_non_supervise_KMeans.ipynb
+6. Random forest/Algorithme supervisé.ipynb
+7. Experimentation_Analyse_Comparative/Experimentation_Analyse_Comparative.ipynb
+```
+
+Les données nécessaires doivent être placées dans le dossier `dataset/`.
+
+## Résultats et limites
+
+Les deux approches apportent des informations complémentaires.
+
+L’approche non supervisée avec K-Means permet d’explorer la structure des données et d’identifier différents groupes d’utilisateurs selon leurs comportements.
+
+L’approche supervisée avec Random Forest permet de détecter automatiquement des profils potentiellement atypiques selon les critères définis dans le projet.
+
+Cependant, les résultats doivent être interprétés avec prudence. Les labels utilisés pour l’approche supervisée sont construits à partir de règles métier et ne correspondent pas à des labels réels de bots ou de spammeurs. Le projet permet donc d’identifier des profils potentiellement atypiques, mais pas de certifier qu’un compte est malveillant.

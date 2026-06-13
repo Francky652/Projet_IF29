@@ -63,7 +63,7 @@ L’enjeu n’est pas seulement de produire un modèle de classification, mais s
 | *TIMADJI Jules* | Data Engineer | Import MongoDB, pipelines d'agrégation, nettoyage |
 | *Fotio Francky* | Data Cleaner | Exploration, feature engineering, visualisations |
 | *HU Xinyu* | Data Analyst, Dataviz Expert | Modèles supervisés, pipelines scikit-learn |
-| *Nom 4* | ML Engineer | Modèles non supervisés, comparaison, rapport |
+| *KAMGUE Ange* | ML Engineer | Modèles non supervisés, comparaison, rapport |
 | *Nom 5* | ML Project Manager, Rédacteur | Modèles non supervisés, comparaison, rapport |
 
 

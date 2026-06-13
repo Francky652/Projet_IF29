@@ -56,15 +56,16 @@ L’enjeu n’est pas seulement de produire un modèle de classification, mais s
 - Comparer les deux approches selon plusieurs dimensions : interprétabilité, performance, robustesse, limites et coût de mise en œuvre.
 - Rédiger un rapport de projet et préparer une soutenance orale.
 
+
 ## Équipe et rôles
 
 | Membre | Rôles assumés | Contributions principales |
 |---|---|---|
-| *TIMADJI Jules* | Data Engineer | Import MongoDB, pipelines d'agrégation, nettoyage |
-| *Fotio Francky* | Data Cleaner | Exploration, feature engineering, visualisations |
-| *HU Xinyu* | Data Analyst, Dataviz Expert | Modèles supervisés, pipelines scikit-learn |
-| *KAMGUE Ange* | ML Engineer | Modèles non supervisés, comparaison, rapport |
-| *Nom 5* | ML Project Manager, Rédacteur | Modèles non supervisés, comparaison, rapport |
+| HU Xinyu | Data Engineer | Prétraitement des données, extraction et analyse des variables, agrégation au niveau utilisateur, PCA et visualisation des profils |
+| TIMADJI Jules | Data Analyst | Analyse des données, interprétation des résultats, rédaction et structuration du rapport |
+| KAMGUE Ange | Machine Learning Engineer | Mise en place de l’approche non supervisée, application de K-Means, choix du nombre de clusters et interprétation des groupes |
+| NOUGWA KEMAJOU Tatiana | Machine Learning Engineer | Mise en place de l’approche supervisée, construction des pseudo-labels, entraînement et évaluation du Random Forest |
+| FOTIO Francky | Project Analyst | Comparaison entre K-Means et Random Forest, analyse critique des deux approches, limites et perspectives |
 
 
 
